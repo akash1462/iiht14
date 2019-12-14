@@ -1,0 +1,31 @@
+.card-header{
+	color:#2196F3;
+    border-bottom:3px solid #BBB;
+    
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+body {
+	font-family: 'Encode Sans'
+}
+
+.material-icons {
+	vertical-align: middle;
+}
+
+.space {
+	padding: 30px;
+}
+
+.search-container {
+	background-image:
+		url("https://images.unsplash.com/photo-1560317620-1ba88ae56e7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80");
+}
+
+.search-font {
+	color: #ffffff;
+	font-size: 40px;
+	font-weight: 300;
+}

@@ -1,0 +1,57 @@
+<div class = "card col-6 mx-auto my-auto mt-5 ">
+    <div class="alert text-white mt-4 mx-auto my-auto">You can add multiple Skills</div>
+
+    <div *ngIf="this.errorMessage!=null" class="alert-warning">
+        {{this.errorMessage}}
+    </div>
+
+    <div class= "mx-auto my-auto" >
+         <h4>Add new Skill</h4>
+    </div>
+    <div class="card-body">
+        <form class="mx-auto my-auto" [formGroup]="skillForm" (submit)="this.addSkill(skillForm.value)">
+            Select Skill:
+            <label for="skill" class="text-white mt-4">Select Skill :</label>
+            <select id="skill" class="form-control" formControlName="skill">
+                <option value disabled selected>Please select your Skill</option>
+                <option *ngFor="let skill of skillList" [value]="skill.name">{{skill.name}}</option>
+            </select>
+            <div class="text-warning" *ngIf="skill.touched && skill.invalid && skill.errors.required">
+                Skill is required
+            </div>
+
+            Self Rating for This Skill:
+            <label for="selfRating" class="text-white mt-4"> Self Rating for This skill :</label>
+            <input class="form-control" type="number" placeholder="Enter Self Rating here" id="selfRating"
+                formControlName="selfRating">
+            <div class="text-warning" *ngIf="selfRating.touched && selfRating.invalid && selfRating.errors.required">
+                Self Rating is required
+            </div>
+            <div class="text-warning" *ngIf="selfRating.errors?.max">
+                Self Rating cannot be over 10.00
+            </div>
+            <div class="text-warning" *ngIf="selfRating.errors?.min">
+                Self Rating cannot be below 00.00
+            </div>
+
+            Years Of Experience:
+            <label for="yearsExperience" class="text-white mt-4"> Years of Experience with This skill :</label>
+            <input class="form-control" type="number" placeholder="Years Of Experience" id="yearsExperience"
+                formControlName="yearsExperience">
+            <div class="text-warning"
+                *ngIf="yearsExperience.touched && yearsExperience.invalid && yearsExperience.errors.required">
+                Years of Experience is required
+            </div>
+
+            <div class="text-warning" *ngIf="yearsExperience.errors?.min">
+                Years of Experience cannot be below 00.00
+            </div>
+
+            <div class="my-5">
+                <input type="submit" class="btn btn-info" value="Add Skill" [disabled]="!skillForm.valid">
+            </div>
+
+        </form>
+    </div>
+
+</div>

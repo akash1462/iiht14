@@ -1,0 +1,135 @@
+package com.cognizant.authservice.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
+
+@Entity
+@Table(name="user")
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "us_id")
+	private long id;
+		
+	@NotNull
+	@Column(name = "user_name")
+	@Size(max=45,min=10)
+	private String userName;
+
+	@Column(name = "password")
+	@Size(max=100,min=3)
+	private String password;
+
+	@Column(name = "first_name")
+	@Size(max=45,min=3)
+	private String firstName;
+
+	@Column(name = "last_name")
+	@Size(max=45,min=3)
+	private String lastName;
+
+	@Column(name = "contact_number")
+	private String contactNumber;
+	
+	@Column(name = "reg_code")
+	private String regCode="";
+	
+	@Column(name = "role")
+	private String role = null;
+	
+	@Column(name = "reset_password")
+	private Boolean resetPassword = false;
+	
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getRegCode() {
+		return regCode;
+	}
+
+	public void setRegCode(String regCode) {
+		this.regCode = regCode;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public Boolean getResetPassword() {
+		return resetPassword;
+	}
+
+	public void setResetPassword(Boolean resetPassword) {
+		this.resetPassword = resetPassword;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", contactNumber=" + contactNumber + ", regCode=" + regCode + ", role="
+				+ role + ", resetPassword=" + resetPassword + "]";
+	}
+
+	
+	
+}
